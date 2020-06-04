@@ -18,7 +18,7 @@ namespace portfolio
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
+                .ConfigureWebHostDefaults(webBuilder => // This function actually uses kestrel by default
                 {
                     webBuilder.UseStartup<Startup>();
                 });
