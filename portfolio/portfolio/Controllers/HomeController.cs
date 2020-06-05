@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using portfolio.Models;
+using portfolio.Infrastructure.Models;
 
 namespace portfolio.Controllers
 {
@@ -23,7 +23,12 @@ namespace portfolio.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Experience()
+        {
+            return View();
+        }
+
+        public IActionResult Contact()
         {
             return View();
         }
