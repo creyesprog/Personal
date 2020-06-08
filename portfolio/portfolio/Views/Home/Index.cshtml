@@ -1,11 +1,70 @@
-﻿<div class="cmd-title">
+﻿<div class="cmd-anim cmd-title">
     <div class="cmd-line1">
-        <p>&#x3e; Hello world.</p>
+        @*<p>&#x3e; Hello world.</p>*@
+        <p></p>
     </div>
     <div class="cmd-line2">
-        <p>&#x3e; I'm <span>Christian Reyes</span>.</p>
+        @*<p>&#x3e; I'm <span>Christian Reyes</span>.</p>*@
+        <p></p>
     </div>
     <div class="cmd-line3">
-        <p>&#x3e; Full-stack web developer_</p>
+        @*<p>&#x3e; Full-stack web developer_</p>*@
+        <p></p>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        $(function () {
+
+            init();
+
+            function init() {
+                animateNextLine();
+            }
+
+            // Animate lines being typed
+            function animateCmd(content, $element, callback, charPosition = 0, linePosition = 0) {
+                let chopper = [];
+
+                // chop lines
+                chopper = content.split('');
+                setTimeout(() => {
+                    if (charPosition < content.length) {
+                        let tempCmdLine = "";
+                        for (var i = 0; i <= charPosition; i++) {
+                            tempCmdLine = tempCmdLine + chopper[i];
+                        }
+                        $element.text(tempCmdLine);
+                        charPosition++;
+                        animateCmd(content, $element, callback, charPosition, linePosition);
+                    } else {
+                        // callback
+                        linePosition++;
+                        callback(linePosition);
+                    }
+                }, 110);
+
+            }
+
+            // Find's which line to type out next. Callback / init func.
+            function animateNextLine(linePos = 0) {
+                var lines = [
+                    ["> Hello world.", ".cmd-line1 p"],
+                    ["> I'm Christian Reyes.", ".cmd-line2 p"],
+                    ["> Full-stack web developer", ".cmd-line3 p"]
+                ];
+
+                if (linePos < lines.length) {
+                    animateCmd(lines[linePos][0], $(lines[linePos][1]), animateNextLine, 0, linePos);
+                }
+            }
+
+            // Display blinking underscore
+            function blink() {
+
+            }
+
+        });
+    </script>
+}
