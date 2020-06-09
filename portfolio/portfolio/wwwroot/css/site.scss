@@ -67,7 +67,22 @@ body {
 
         p {
             margin: initial;
+
+            &.blink::after {
+                content: "_";
+                animation: cmd-blink 1s step-end infinite;
+            }
         }
+    }
+}
+
+@keyframes cmd-blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
     }
 }
 

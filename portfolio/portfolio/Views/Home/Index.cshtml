@@ -1,14 +1,11 @@
 ﻿<div class="cmd-anim cmd-title">
     <div class="cmd-line1">
-        @*<p>&#x3e; Hello world.</p>*@
         <p></p>
     </div>
     <div class="cmd-line2">
-        @*<p>&#x3e; I'm <span>Christian Reyes</span>.</p>*@
         <p></p>
     </div>
     <div class="cmd-line3">
-        @*<p>&#x3e; Full-stack web developer_</p>*@
         <p></p>
     </div>
 </div>
@@ -38,13 +35,14 @@
                         $element.text(tempCmdLine);
                         charPosition++;
                         animateCmd(content, $element, callback, charPosition, linePosition);
+                        $element.addClass("blink");
                     } else {
                         // callback
                         linePosition++;
+                        $element.removeClass("blink");
                         callback(linePosition);
                     }
-                }, 110);
-
+                }, 65);
             }
 
             // Find's which line to type out next. Callback / init func.
@@ -57,6 +55,9 @@
 
                 if (linePos < lines.length) {
                     animateCmd(lines[linePos][0], $(lines[linePos][1]), animateNextLine, 0, linePos);
+                } else {
+                    linePos--;
+                    $(lines[linePos][1]).addClass("blink");
                 }
             }
 
