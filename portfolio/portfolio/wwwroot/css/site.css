@@ -1,6 +1,12 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 /* Provide sufficient contrast against white background */
+/* Utilities */
+.disable {
+  color: #808080 !important;
+  pointer-events: none !important;
+  cursor: not-allowed !important; }
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -52,13 +58,14 @@ body {
       margin: initial; }
       body .cmd-title p.blink::after {
         content: "_";
-        animation: cmd-blink 1s step-end infinite; }
+        /*animation: cmd-blink 1s step-end infinite;*/
+        -webkit-animation: cmd-blink 1s step-end infinite; }
 
-@keyframes cmd-blink {
+@-webkit-keyframes cmd-blink {
   0% {
-    opacity: 1; }
+    -webkit-opacity: 1; }
   50% {
-    opacity: 0; } }
+    -webkit-opacity: 0; } }
 
 .footer {
   text-align: center;
