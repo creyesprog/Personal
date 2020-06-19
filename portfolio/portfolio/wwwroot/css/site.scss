@@ -2,21 +2,16 @@
 for details on configuring this project to bundle and minify static web assets. */
 /* Provide sufficient contrast against white background */
 
+/* Widths: 0-575 */
+
 /* Utilities */
 $disable-grey: #808080;
-
+$nav-width: 50px;
 
 .disable {
     color: $disable-grey !important;
     pointer-events: none !important;
     cursor: not-allowed !important;
-}
-
-
-a.navbar-brand {
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
 }
 
 a {
@@ -68,22 +63,118 @@ button.accept-policy {
     line-height: inherit;
 }
 
+// Bootstrap overrides
+.navbar {
+    @media (min-width: 576px) {
+        padding: 0px;
+        align-items: initial;
+        margin: 0px 0px 0px 0px !important;
+    }
+}
+
+.navbar-nav {
+    @media (min-width: 576px) {
+        flex-direction: column !important;
+    }
+}
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+    margin: initial;
+    padding: 0px;
+}
+
+// Standard
+
 body {
     margin-bottom: 60px;
 
-    .cmd-title {
-        text-align: left;
-        font-size: 3vh;
-        font-weight: 300;
+    header {
+        @media (min-width: 576px) {
+            display: flex;
+            height: 100%;
+            position: fixed;
+            width: $nav-width;
+            padding: 0px;
+        }
 
-        p {
-            margin: initial;
+        nav {
+            padding: 0px;
+            text-align: center;
 
-            &.blink::after {
-                content: "_";
-                /*animation: cmd-blink 1s step-end infinite;*/
-                -webkit-animation: cmd-blink 1s step-end infinite;
+            .navbar-icon-groups {
+                @media (min-width: 576px) {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                }
+
+                @media (max-width: 575px) {
+                    width: 100%;
+                }
+
+                .icon-group-top {
+                    @media (min-width: 576px) {
+                        margin-top: 5px;
+                    }
+
+                    @media (max-width: 575px) {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                    }
+
+                    .navbar-brand {
+                        padding-top: .3125rem;
+                    }
+                }
+
+                .icon-group-middle {
+                }
+
+                .icon-group-bottom {
+                    @media (max-width: 575px) {
+                        display: none;
+                    }
+
+                    margin-bottom: 5px;
+                }
             }
+        }
+    }
+
+    .container {
+        #div-header {
+            padding-top: 100px;
+            min-height: 400px;
+
+            &.cmd-title {
+                text-align: left;
+                font-size: 3vh;
+                font-weight: 300;
+
+                p {
+                    margin: initial;
+
+                    &.blink::after {
+                        content: "_";
+                        /*animation: cmd-blink 1s step-end infinite;*/
+                        -webkit-animation: cmd-blink 1s step-end infinite;
+                    }
+                }
+            }
+        }
+
+        #div-about {
+            text-align: center;
+        }
+
+        #div-skills {
+        }
+
+        #div-contact {
         }
     }
 }

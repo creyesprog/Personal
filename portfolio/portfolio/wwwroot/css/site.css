@@ -1,16 +1,12 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 /* Provide sufficient contrast against white background */
+/* Widths: 0-575 */
 /* Utilities */
 .disable {
   color: #808080 !important;
   pointer-events: none !important;
   cursor: not-allowed !important; }
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all; }
 
 a {
   color: #0366d6; }
@@ -48,18 +44,73 @@ button.accept-policy {
   font-size: 1rem;
   line-height: inherit; }
 
+@media (min-width: 576px) {
+  .navbar {
+    padding: 0px;
+    align-items: initial;
+    margin: 0px 0px 0px 0px !important; } }
+
+@media (min-width: 576px) {
+  .navbar-nav {
+    flex-direction: column !important; } }
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+  margin: initial;
+  padding: 0px; }
+
 body {
   margin-bottom: 60px; }
-  body .cmd-title {
-    text-align: left;
-    font-size: 3vh;
-    font-weight: 300; }
-    body .cmd-title p {
-      margin: initial; }
-      body .cmd-title p.blink::after {
-        content: "_";
-        /*animation: cmd-blink 1s step-end infinite;*/
-        -webkit-animation: cmd-blink 1s step-end infinite; }
+  @media (min-width: 576px) {
+    body header {
+      display: flex;
+      height: 100%;
+      position: fixed;
+      width: 50px;
+      padding: 0px; } }
+  body header nav {
+    padding: 0px;
+    text-align: center; }
+    @media (min-width: 576px) {
+      body header nav .navbar-icon-groups {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; } }
+    @media (max-width: 575px) {
+      body header nav .navbar-icon-groups {
+        width: 100%; } }
+    @media (min-width: 576px) {
+      body header nav .navbar-icon-groups .icon-group-top {
+        margin-top: 5px; } }
+    @media (max-width: 575px) {
+      body header nav .navbar-icon-groups .icon-group-top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; } }
+    body header nav .navbar-icon-groups .icon-group-top .navbar-brand {
+      padding-top: .3125rem; }
+    body header nav .navbar-icon-groups .icon-group-bottom {
+      margin-bottom: 5px; }
+      @media (max-width: 575px) {
+        body header nav .navbar-icon-groups .icon-group-bottom {
+          display: none; } }
+  body .container #div-header {
+    padding-top: 100px;
+    min-height: 400px; }
+    body .container #div-header.cmd-title {
+      text-align: left;
+      font-size: 3vh;
+      font-weight: 300; }
+      body .container #div-header.cmd-title p {
+        margin: initial; }
+        body .container #div-header.cmd-title p.blink::after {
+          content: "_";
+          /*animation: cmd-blink 1s step-end infinite;*/
+          -webkit-animation: cmd-blink 1s step-end infinite; }
+  body .container #div-about {
+    text-align: center; }
 
 @-webkit-keyframes cmd-blink {
   0% {
