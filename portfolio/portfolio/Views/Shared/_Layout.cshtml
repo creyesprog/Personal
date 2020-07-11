@@ -22,17 +22,34 @@
                 <div class="icon-group-middle navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
+                                <img src="~/images/icons8-home-page-32.png" />
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark" href="#div-about">
+                                <img src="~/images/icons8-male-user-32.png" />
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link text-dark" href="#div-skills">
+                                <img src="~/images/icons8-wrench-32.png" />
+                            </a>
                         </li>
                         <li class="nav-item disable">
-                            @Html.ActionLink("Contact me", "Contact", "Home", null, new { @class = "nav-link" })
+                            @*@Html.ActionLink("Contact me", "Contact", "Home", null, new { @class = "nav-link" })*@
+                            <a href="#div-contact">
+                                <img src="~/images/icons8-email-open-32.png" alt="Alternate Text" />
+                            </a>
                         </li>
                     </ul>
                 </div>
                 <div class="icon-group-bottom">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            LND
+                            <a id="lnk-linkedin" href="https://www.linkedin.com/in/creyes-dev/">
+                                <img src="~/images/icons8-linkedin.svg" alt="Alternate Text" />
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -44,10 +61,10 @@
     </div>
 
     @*<footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - Powered by AWS
-        </div>
-    </footer>*@
+            <div class="container">
+                &copy; 2020 - Powered by AWS
+            </div>
+        </footer>*@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

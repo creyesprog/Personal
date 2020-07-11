@@ -2,11 +2,19 @@
 for details on configuring this project to bundle and minify static web assets. */
 /* Provide sufficient contrast against white background */
 
-/* Widths: 0-575 */
+/* 
+    Widths: 0-575 (mobile)
+    Widths: 576-767 (Desktop-md)
+    Widths: 768-991 (Desktop-l)
+    Widths: 993-1199 (Desktop-xl)
+    Widths: 1200+ (SUPER LARGE)
+*/
 
 /* Utilities */
 $disable-grey: #808080;
 $nav-width: 50px;
+
+$div-logo-height-width: 7rem;
 
 .disable {
     color: $disable-grey !important;
@@ -86,7 +94,11 @@ a.navbar-brand {
     padding: 0px;
 }
 
-// Standard
+.box-shadow {
+    box-shadow: 0 0rem 0.75rem rgba(0, 0, 0, 0.15);
+}
+
+// Custom CSS
 
 body {
     margin-bottom: 60px;
@@ -139,14 +151,30 @@ body {
                         display: none;
                     }
 
-                    margin-bottom: 5px;
+                    margin-bottom: 20px;
                 }
             }
         }
     }
 
     .container {
-        #div-header {
+        margin-left: 0px;
+        margin-right: 0px;
+        max-width: 100%;
+        /*Media queries for controlling padding on resize*/
+        @media(min-width: 576px) {
+            padding: 0px 0px 0px $nav-width + 25px;
+        }
+
+        @media(min-width: 993px) {
+            padding: 0px $nav-width + 100px;
+        }
+
+        @media(min-width: 1200px) {
+            padding: 0px $nav-width + 250px;
+        }
+
+        #section-header {
             padding-top: 100px;
             min-height: 400px;
 
@@ -167,14 +195,72 @@ body {
             }
         }
 
-        #div-about {
+        #section-about {
             text-align: center;
+
+            p:nth-of-type(2) {
+                margin-bottom: 4rem;
+            }
+
+            #div-experience {
+                display: flex;
+                flex-direction: column;
+
+                .exp-row {
+                    display: flex;
+                    flex-direction: row;
+
+                    .exp-logo {
+                        flex: none;
+                        display: flex;
+                        align-items: center;
+                        border-radius: 50%;
+                        background-color: white;
+                        /*border: 2px solid black;*/
+                        width: $div-logo-height-width;
+                        height: $div-logo-height-width;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+
+                        &#kubra-logo {
+                            background-image: url('/images/KUBRA-Logo.jpg');
+                        }
+
+                        &#rd-logo {
+                            background-image: url('/images/RD-Logo.jpg');
+                        }
+
+                        &#remax-logo {
+                            background-image: url('/images/Remax-Logo.png');
+                        }
+                    }
+
+                    .exp-summary {
+                        padding: 0px 50px;
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+
+                .exp-connector {
+                    flex: none;
+                    display: flex;
+                    align-items: center;
+                    border-radius: 50%;
+                    /*background: black;*/
+                    width: $div-logo-height-width;
+                    height: 4rem;
+                }
+            }
+
+            margin-bottom: 150px;
         }
 
-        #div-skills {
+        #section-skills {
         }
 
-        #div-contact {
+        #section-contact {
         }
     }
 }

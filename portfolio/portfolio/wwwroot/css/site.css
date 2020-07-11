@@ -1,7 +1,13 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 /* Provide sufficient contrast against white background */
-/* Widths: 0-575 */
+/* 
+    Widths: 0-575 (mobile)
+    Widths: 576-767 (Desktop-md)
+    Widths: 768-991 (Desktop-l)
+    Widths: 993-1199 (Desktop-xl)
+    Widths: 1200+ (SUPER LARGE)
+*/
 /* Utilities */
 .disable {
   color: #808080 !important;
@@ -61,6 +67,9 @@ a.navbar-brand {
   margin: initial;
   padding: 0px; }
 
+.box-shadow {
+  box-shadow: 0 0rem 0.75rem rgba(0, 0, 0, 0.15); }
+
 body {
   margin-bottom: 60px; }
   @media (min-width: 576px) {
@@ -92,25 +101,78 @@ body {
     body header nav .navbar-icon-groups .icon-group-top .navbar-brand {
       padding-top: .3125rem; }
     body header nav .navbar-icon-groups .icon-group-bottom {
-      margin-bottom: 5px; }
+      margin-bottom: 20px; }
       @media (max-width: 575px) {
         body header nav .navbar-icon-groups .icon-group-bottom {
           display: none; } }
-  body .container #div-header {
-    padding-top: 100px;
-    min-height: 400px; }
-    body .container #div-header.cmd-title {
-      text-align: left;
-      font-size: 3vh;
-      font-weight: 300; }
-      body .container #div-header.cmd-title p {
-        margin: initial; }
-        body .container #div-header.cmd-title p.blink::after {
-          content: "_";
-          /*animation: cmd-blink 1s step-end infinite;*/
-          -webkit-animation: cmd-blink 1s step-end infinite; }
-  body .container #div-about {
-    text-align: center; }
+  body .container {
+    margin-left: 0px;
+    margin-right: 0px;
+    max-width: 100%;
+    /*Media queries for controlling padding on resize*/ }
+    @media (min-width: 576px) {
+      body .container {
+        padding: 0px 0px 0px 75px; } }
+    @media (min-width: 993px) {
+      body .container {
+        padding: 0px 150px; } }
+    @media (min-width: 1200px) {
+      body .container {
+        padding: 0px 300px; } }
+    body .container #section-header {
+      padding-top: 100px;
+      min-height: 400px; }
+      body .container #section-header.cmd-title {
+        text-align: left;
+        font-size: 3vh;
+        font-weight: 300; }
+        body .container #section-header.cmd-title p {
+          margin: initial; }
+          body .container #section-header.cmd-title p.blink::after {
+            content: "_";
+            /*animation: cmd-blink 1s step-end infinite;*/
+            -webkit-animation: cmd-blink 1s step-end infinite; }
+    body .container #section-about {
+      text-align: center;
+      margin-bottom: 150px; }
+      body .container #section-about p:nth-of-type(2) {
+        margin-bottom: 4rem; }
+      body .container #section-about #div-experience {
+        display: flex;
+        flex-direction: column; }
+        body .container #section-about #div-experience .exp-row {
+          display: flex;
+          flex-direction: row; }
+          body .container #section-about #div-experience .exp-row .exp-logo {
+            flex: none;
+            display: flex;
+            align-items: center;
+            border-radius: 50%;
+            background-color: white;
+            /*border: 2px solid black;*/
+            width: 7rem;
+            height: 7rem;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain; }
+            body .container #section-about #div-experience .exp-row .exp-logo#kubra-logo {
+              background-image: url("/images/KUBRA-Logo.jpg"); }
+            body .container #section-about #div-experience .exp-row .exp-logo#rd-logo {
+              background-image: url("/images/RD-Logo.jpg"); }
+            body .container #section-about #div-experience .exp-row .exp-logo#remax-logo {
+              background-image: url("/images/Remax-Logo.png"); }
+          body .container #section-about #div-experience .exp-row .exp-summary {
+            padding: 0px 50px;
+            display: flex;
+            align-items: center; }
+        body .container #section-about #div-experience .exp-connector {
+          flex: none;
+          display: flex;
+          align-items: center;
+          border-radius: 50%;
+          /*background: black;*/
+          width: 7rem;
+          height: 4rem; }
 
 @-webkit-keyframes cmd-blink {
   0% {
