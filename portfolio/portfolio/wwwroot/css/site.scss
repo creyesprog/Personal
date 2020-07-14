@@ -11,14 +11,29 @@ for details on configuring this project to bundle and minify static web assets. 
 */
 
 /* Utilities */
+$color-bar-fill: #000000;
 $disable-grey: #808080;
-$nav-width: 50px;
-
 $div-logo-height-width: 7rem;
+$nav-width: 50px;
+$section-padding-offset-575: 1px;
 $section-padding-offset-576: 25px;
 $section-padding-offset-993: 100px;
 $section-padding-offset-1200: 250px;
 $section-padding-top-bottom: 30px;
+$skill-bg-grey: #ffffff;
+
+/* Mixin */
+@mixin div-bg {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+@mixin bar-skill-fill ($width) {
+    width: $width;
+    height: 100%;
+    background-color: #002f85;
+}
 
 .disable {
     color: $disable-grey !important;
@@ -62,20 +77,18 @@ html {
     border-top: 1px solid #e5e5e5;
 }
 
-.border-bottom {
-    border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
 button.accept-policy {
     font-size: 1rem;
     line-height: inherit;
 }
 
-// Bootstrap overrides
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// ************************** Bootstrap overrides **************************
 .navbar {
     @media (min-width: 576px) {
         padding: 0px;
@@ -102,6 +115,10 @@ a.navbar-brand {
     box-shadow: 0 0rem 0.75rem rgba(0, 0, 0, 0.15);
 }
 
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
 .container {
     padding-left: 0px;
     padding-right: 0px;
@@ -109,6 +126,7 @@ a.navbar-brand {
 
 // ************************** Custom CSS **************************
 
+// BG colours
 .bg-off-white {
     background-color: #fbfbfd;
 }
@@ -124,6 +142,81 @@ a.navbar-brand {
 .bg-dark-grey {
     background-color: #e9ecef;
 }
+
+.skill-bar {
+    background-color: white;
+    height: 1.90rem;
+    margin: 0.85rem 0rem 0.85rem 0rem;
+
+    .skill-label {
+        font-size: 1rem;
+        font-weight: bold;
+        color: white;
+        background-color: #406ff7;
+        margin: 0px;
+        text-align: center;
+        height: 100%;
+        margin: auto;
+    }
+
+    .skill-bar-fill {
+        background-color: $skill-bg-grey;
+        padding: 0px;
+        height: 100%;
+
+        .bar-10 {
+            @include bar-skill-fill(10%);
+        }
+
+        .bar-20 {
+            @include bar-skill-fill(20%);
+        }
+
+        .bar-30 {
+            @include bar-skill-fill(30%);
+        }
+
+        .bar-40 {
+            @include bar-skill-fill(40%);
+        }
+
+        .bar-50 {
+            @include bar-skill-fill(50%);
+        }
+
+        .bar-60 {
+            @include bar-skill-fill(60%);
+        }
+
+        .bar-70 {
+            @include bar-skill-fill(70%);
+        }
+
+        .bar-80 {
+            @include bar-skill-fill(80%);
+        }
+
+        .bar-90 {
+            @include bar-skill-fill(90%);
+        }
+
+        .bar-100 {
+            @include bar-skill-fill(100%);
+        }
+
+        .skill-percent {
+
+            @media(max-width: 575px) {
+                color: $skill-bg-grey;
+            }
+
+            display: flex;
+            margin-left: auto;
+            margin-right: 10px;
+        }
+    }
+}
+
 
 body {
     margin-bottom: 60px;
@@ -193,6 +286,11 @@ body {
             padding-bottom: $section-padding-top-bottom;
             max-width: 100%;
 
+            @media(max-width: 575px) {
+                padding-left: $nav-width + $section-padding-offset-575;
+                padding-right: $nav-width + $section-padding-offset-575;
+            }
+
             @media(min-width: 576px) {
                 padding-left: $nav-width + $section-padding-offset-576;
                 padding-right: $nav-width + $section-padding-offset-576;
@@ -209,13 +307,22 @@ body {
             }
 
             h1 {
-                text-align: center;
+                text-align: left;
+                font-family: sans-serif;
+            }
+
+            .section-content {
+                text-align: left;
             }
         }
 
         #section-header {
             padding-top: 100px;
             min-height: 400px;
+            background: url("/images/banner.JPG");
+            @include div-bg;
+            background-size: cover;
+            color: white;
 
             &.cmd-title {
                 text-align: left;
@@ -227,7 +334,6 @@ body {
 
                     &.blink::after {
                         content: "_";
-                        /*animation: cmd-blink 1s step-end infinite;*/
                         -webkit-animation: cmd-blink 1s step-end infinite;
                     }
                 }
@@ -255,12 +361,9 @@ body {
                         align-items: center;
                         border-radius: 50%;
                         background-color: white;
-                        /*border: 2px solid black;*/
                         width: $div-logo-height-width;
                         height: $div-logo-height-width;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                        background-size: contain;
+                        @include div-bg;
 
                         &#kubra-logo {
                             background-image: url('/images/KUBRA-Logo.jpg');
@@ -277,8 +380,14 @@ body {
 
                     .exp-summary {
                         padding: 0px 50px;
+
+                        @media (max-width: 575px) {
+                            padding: 0px 5px 0px 20px;
+                        }
+
                         display: flex;
                         align-items: center;
+                        text-align: left;
                     }
                 }
 
@@ -287,7 +396,6 @@ body {
                     display: flex;
                     align-items: center;
                     border-radius: 50%;
-                    /*background: black;*/
                     width: $div-logo-height-width;
                     height: 4rem;
                 }

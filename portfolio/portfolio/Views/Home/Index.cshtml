@@ -1,4 +1,6 @@
-﻿<section id="section-header" class="cmd-anim cmd-title">
+﻿@using portfolio.Infrastructure.Models.PartialModels
+
+<section id="section-header" class="cmd-anim cmd-title">
     <div class="cmd-line1">
         <p></p>
     </div>
@@ -10,10 +12,11 @@
     </div>
 </section>
 <section id="section-about" class="bg-off-white">
-    <h1>About me.</h1>
-    I am a full-stack developer (60% backend / 40% frontend) well-versed in providing efficient and optimized solutions for any problem. Currently interested in developing solutions on Amazon Web Services (which this site is built on).
+    <h1>> About me.</h1>
+    <p class="section-content">
+        I am a full-stack developer (60% backend / 40% frontend) well-versed in providing efficient and optimized solutions for any problem. Currently interested in developing solutions on Amazon Web Services (which this site is built on).
     </p>
-    <p>
+    <p class="text-center">
         Here is a list of work experience I have had thus far:
     </p>
     <div id="div-experience">
@@ -21,7 +24,7 @@
             <div id="kubra-logo" class="exp-logo box-shadow">
             </div>
             <div class="exp-summary">
-                I worked at KUBRA as a Programmer / Analyst where I delved deep in commercial grade code. This is where I picked up blahblah
+                <p>I worked at KUBRA as a Programmer / Analyst where I delved deep in commercial grade code. This is where I picked up blahblah</p>
             </div>
         </div>
         <div class="exp-connector">
@@ -30,8 +33,10 @@
             <div id="rd-logo" class="exp-logo box-shadow">
             </div>
             <div class="exp-summary">
-                I worked at Richmond Day as a Web Developer where I designed solutions for BMW, MINI, and LG (just to new a few) from the ground up.
-                These included systems that collected payments, customer interaction tracking, display kiosks, scheduling systems, etc.
+                <p>
+                    I worked at Richmond Day as a Web Developer where I designed solutions for BMW, MINI, and LG (just to new a few) from the ground up.
+                    These included systems that collected payments, customer interaction tracking, display kiosks, scheduling systems, etc.
+                </p>
             </div>
         </div>
         <div class="exp-connector">
@@ -40,24 +45,42 @@
             <div id="remax-logo" class="exp-logo box-shadow">
             </div>
             <div class="exp-summary">
-                I joined RE/MAX as a Full Stack Developer where I started my journey with Angular and AWS development
+                <p>
+                    I joined RE/MAX as a Full Stack Developer where I started my journey with Angular and AWS development
+                </p>
             </div>
         </div>
     </div>
 </section>
 <section id="section-skills">
     <h1>
-        Skills.
+        > Skills.
     </h1>
-    <p>
+    <p class="section-content">
         The main area of my expertise is backend development (server side of the web).
         I've grown out of just backend development and now venture in both.
     </p>
+    <div class="skill-bars">
+        @{
+            await Html.RenderPartialAsync("_SkillBarPartial", new SkillPartialViewModel("C#", 90));
+            await Html.RenderPartialAsync("_SkillBarPartial", new SkillPartialViewModel(".NET/Core", 90));
+            await Html.RenderPartialAsync("_SkillBarPartial", new SkillPartialViewModel("SQL Server", 80));
+            await Html.RenderPartialAsync("_SkillBarPartial", new SkillPartialViewModel("JavaScript", 70));
+            await Html.RenderPartialAsync("_SkillBarPartial", new SkillPartialViewModel("Angular", 50));
+            await Html.RenderPartialAsync("_SkillBarPartial", new SkillPartialViewModel("HTML", 80));
+            await Html.RenderPartialAsync("_SkillBarPartial", new SkillPartialViewModel("CSS/Sass", 60));
+            await Html.RenderPartialAsync("_SkillBarPartial", new SkillPartialViewModel("AWS", 60));
+
+        }
+    </div>
 </section>
 <section id="section-contact" class="bg-light-grey">
     <h1>
-        Contact me.
+        > Contact me.
     </h1>
+    <p class="section-content">
+
+    </p>
 </section>
 
 @section Scripts {

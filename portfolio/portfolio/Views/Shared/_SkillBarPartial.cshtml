@@ -1,0 +1,11 @@
+﻿@model portfolio.Infrastructure.Models.PartialModels.SkillPartialViewModel
+
+<div class="row skill-bar box-shadow">
+    <div class="col-2 skill-label flex-center">
+        @Model.Header
+    </div>
+    <div class="col-10 skill-bar-fill flex-center">
+        <div class="bar-@Model.Weight"></div>
+        <span class="skill-percent">@Model.Weight%</span>
+    </div>
+</div>
