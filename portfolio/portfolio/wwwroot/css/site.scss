@@ -46,6 +46,14 @@ $skill-bg-grey: #ffffff;
 
 /* Utilities */
 
+.bold {
+    font-weight: 400;
+}
+
+.bolder {
+    font-weight: 500;
+}
+
 .disable {
     color: $disable-grey !important;
     pointer-events: none !important;
