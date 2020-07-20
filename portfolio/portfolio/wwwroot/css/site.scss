@@ -8,10 +8,13 @@
 */
 
 /* Variables */
+$box-shadow: 0 0rem 0.75rem rgba(0, 0, 0, 0.15);
 $color-bar-fill: #000000;
 $disable-grey: #808080;
-$div-logo-height-width: 7rem;
+$exp-logo-height-width: 7rem;
 $line-color: #dbdbdb;
+$nav-link-padding: 0.2rem;
+$nav-link-transition: 0.4s;
 $nav-width: 50px;
 $section-padding-offset-575: 10px;
 $section-padding-offset-576: 25px;
@@ -22,16 +25,23 @@ $section-padding-top-bottom: 30px;
 $skill-bg-grey: #ffffff;
 
 /* Mixin */
+
+@mixin bar-skill-fill ($width) {
+    width: $width;
+    height: 100%;
+    background-color: #002f85;
+}
+
 @mixin div-bg {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
 }
 
-@mixin bar-skill-fill ($width) {
-    width: $width;
-    height: 100%;
-    background-color: #002f85;
+@mixin exp-logo {
+    border-radius: 50%;
+    width: $exp-logo-height-width;
+    height: $exp-logo-height-width;
 }
 
 /* Utilities */
@@ -107,6 +117,45 @@ button.accept-policy {
     @media (min-width: 576px) {
         flex-direction: column !important;
     }
+
+    .nav-item {
+
+        .nav-link {
+            padding-left: $nav-link-padding;
+            padding-right: $nav-link-padding;
+
+            .lnk-image {
+                position: absolute;
+            }
+
+            .nav-link-span {
+                font-size: 1rem;
+            }
+
+            &:hover {
+                & > .lnk-image {
+                    opacity: 0;
+                    transition: $nav-link-transition;
+                }
+
+                & > span {
+                    opacity: 1;
+                    transition: $nav-link-transition;
+                }
+            }
+
+            img {
+                opacity: 1;
+                transition: $nav-link-transition;
+            }
+
+            span {
+                font-weight: 400;
+                opacity: 0;
+                transition: $nav-link-transition;
+            }
+        }
+    }
 }
 
 a.navbar-brand {
@@ -118,7 +167,7 @@ a.navbar-brand {
 }
 
 .box-shadow {
-    box-shadow: 0 0rem 0.75rem rgba(0, 0, 0, 0.15);
+    box-shadow: $box-shadow;
 }
 
 .border-bottom {
@@ -133,7 +182,6 @@ a.navbar-brand {
 
 // ************************** Custom CSS **************************
 
-// BG colours
 .bg-off-white {
     background-color: #fbfbfd;
 }
@@ -296,6 +344,14 @@ body {
                     }
 
                     margin-bottom: 20px;
+
+                    .navbar-nav {
+                        .nav-item {
+                            #lnk-linkedin {
+                                box-shadow: $box-shadow;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -413,11 +469,19 @@ body {
                     .exp-logo {
                         flex: none;
                         align-self: center;
-                        border-radius: 50%;
                         background-color: white;
-                        width: $div-logo-height-width;
-                        height: $div-logo-height-width;
+                        transition: 0.4s;
+                        @include exp-logo;
                         @include div-bg;
+
+                        a {
+                            @include exp-logo;
+                            display: block;
+                        }
+
+                        &:hover {
+                            box-shadow: 0 0rem 0.75rem #2279d8;
+                        }
 
                         &#kubra-logo {
                             background-image: url('/images/KUBRA-Logo.jpg');
@@ -457,12 +521,12 @@ body {
                     display: flex;
                     align-items: center;
                     border-radius: 50%;
-                    width: $div-logo-height-width;
+                    width: $exp-logo-height-width;
                     height: 4rem;
                 }
 
                 .exp-line-anim {
-                    width: $div-logo-height-width;
+                    width: $exp-logo-height-width;
                     height: 100%;
                 }
             }

@@ -22,18 +22,21 @@
                 <div class="icon-group-middle navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
-                                <img src="~/images/icons8-home-page-32.png" />
+                            <a id="lnk-home" class="nav-link text-dark flex-center" asp-area="" asp-controller="Home" asp-action="Index">
+                                <img class="lnk-image" src="~/images/icons8-home-page-32.png" />
+                                <span class="nav-link-span">home</span>
                             </a>
                         </li>
-                        <li>
-                            <a class="nav-link text-dark" href="#section-about">
-                                <img src="~/images/icons8-male-user-32.png" />
+                        <li class="nav-item">
+                            <a id="lnk-about" class="nav-link text-dark flex-center" href="#section-about">
+                                <img class="lnk-image" src="~/images/icons8-male-user-32.png" />
+                                <span class="nav-link-span">about</span>
                             </a>
                         </li>
-                        <li>
-                            <a class="nav-link text-dark" href="#section-skills">
-                                <img src="~/images/icons8-wrench-32.png" />
+                        <li class="nav-item">
+                            <a id="lnk-skills" class="nav-link text-dark flex-center" href="#section-skills">
+                                <img class="lnk-image" src="~/images/icons8-wrench-32.png" />
+                                <span class="nav-link-span">skills</span>
                             </a>
                         </li>
                         @*<li class="nav-item disable">

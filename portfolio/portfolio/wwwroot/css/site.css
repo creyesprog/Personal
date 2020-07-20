@@ -64,6 +64,27 @@ button.accept-policy {
   .navbar-nav {
     flex-direction: column !important; } }
 
+.navbar-nav .nav-item .nav-link {
+  padding-left: 0.2rem;
+  padding-right: 0.2rem; }
+  .navbar-nav .nav-item .nav-link .lnk-image {
+    position: absolute; }
+  .navbar-nav .nav-item .nav-link .nav-link-span {
+    font-size: 1rem; }
+  .navbar-nav .nav-item .nav-link:hover > .lnk-image {
+    opacity: 0;
+    transition: 0.4s; }
+  .navbar-nav .nav-item .nav-link:hover > span {
+    opacity: 1;
+    transition: 0.4s; }
+  .navbar-nav .nav-item .nav-link img {
+    opacity: 1;
+    transition: 0.4s; }
+  .navbar-nav .nav-item .nav-link span {
+    font-weight: 400;
+    opacity: 0;
+    transition: 0.4s; }
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -202,6 +223,8 @@ body {
       @media (max-width: 575px) {
         body header nav .navbar-icon-groups .icon-group-bottom {
           display: none; } }
+      body header nav .navbar-icon-groups .icon-group-bottom .navbar-nav .nav-item #lnk-linkedin {
+        box-shadow: 0 0rem 0.75rem rgba(0, 0, 0, 0.15); }
   body .container {
     margin-left: 0px;
     margin-right: 0px;
@@ -286,13 +309,21 @@ body {
           body .container #section-about #div-experience .exp-row .exp-logo {
             flex: none;
             align-self: center;
-            border-radius: 50%;
             background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
             width: 7rem;
             height: 7rem;
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain; }
+            body .container #section-about #div-experience .exp-row .exp-logo a {
+              border-radius: 50%;
+              width: 7rem;
+              height: 7rem;
+              display: block; }
+            body .container #section-about #div-experience .exp-row .exp-logo:hover {
+              box-shadow: 0 0rem 0.75rem #2279d8; }
             body .container #section-about #div-experience .exp-row .exp-logo#kubra-logo {
               background-image: url("/images/KUBRA-Logo.jpg"); }
             body .container #section-about #div-experience .exp-row .exp-logo#rd-logo {
