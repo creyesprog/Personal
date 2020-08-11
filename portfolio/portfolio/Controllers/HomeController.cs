@@ -6,7 +6,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using portfolio.Infrastructure.Database;
+using portfolio.Infrastructure.Database.Models;
 using portfolio.Infrastructure.Models;
+using portfolio.Infrastructure.Services.Interfaces;
 
 namespace portfolio.Controllers
 {

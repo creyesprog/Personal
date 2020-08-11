@@ -10,9 +10,9 @@
 <section id="section-about" class="bg-off-white">
     <h1>> About me</h1>
     <p class="section-content">
-        I'm a <span class="bold">full-stack developer</span> (60% backend / 40% frontend) found in <span class="bold">Brampton, ON.</span><br />
-    I have a passion in providing <span class="bold">simple</span> and <span class="bold">efficient</span> solutions for any problem.
-</p>
+        I'm a <span class="bold">full-stack developer</span> (60% backend / 40% frontend) based in <span class="bold">Brampton, ON.</span><br />
+        I have a passion in providing <span class="bold">simple</span> and <span class="bold">efficient</span> solutions for any problem.
+    </p>
     @*<p class="text-center">
             Here is a list of work experience I have had so far:
             If
@@ -21,15 +21,15 @@
     <div id="div-experience">
         <div class="exp-row flex-center">
             <div id="kubra-logo" class="exp-logo box-shadow">
-                <a href="https://kubra.com"></a>
+                <a href="https://kubra.com" target="_blank"></a>
             </div>
             <div class="exp-summary">
                 <p>
                     I worked at <span class="bold">KUBRA</span> as a <span class="bold">Programmer / Analyst</span>
                     where I delved deep in payment solutions and large amounts of data.
-                    Due to working with immense server and database loads, I learned how best to optimize solutions for millions of users.
+                    Due to working with <span class="bold">immense server and database loads</span>, I learned how best to <span class="bold">optimize</span> solutions for millions of users.
                     With that being said, I also made a lot of friends along the way-but more importantly-gained greater insight on how to create
-                    modular and robust solutions using a slew of technology.
+                    <span class="bold">modular</span> and <span class="bold">robust</span> solutions using a slew of technology.
                 </p>
             </div>
         </div>
@@ -37,14 +37,14 @@
         </div>
         <div class="exp-row flex-center">
             <div id="rd-logo" class="exp-logo box-shadow">
-                <a href="https://richmondday.com"></a>
+                <a href="https://richmondday.com" target="_blank"></a>
             </div>
             <div class="exp-summary">
                 <p>
                     Working at <span class="bold">Richmond Day</span> as a <span class="bold">Web Developer</span> was quite challenging and rigorous,
                     but at the same time substantially rewarding. This was where I crafted solutions for <span class="bold">BMW, MINI, and LG</span> (just to new a few) from the ground up
                     in order to solve any problem provided (with quite literally any tech involved).
-                    Some examples included systems that collected payments, customer interaction tracking, display kiosks, and scheduling systems.
+                    Some examples included systems that <span class="bold">collected payments, customer interaction tracking, display kiosks, and scheduling systems.</span>
                 </p>
             </div>
         </div>
@@ -52,14 +52,14 @@
         </div>
         <div class="exp-row flex-center">
             <div id="remax-logo" class="exp-logo box-shadow">
-                <a href="https://remax.com"></a>
+                <a href="https://remax.com" target="_blank"></a>
             </div>
             <div class="exp-summary">
                 <p>
-                    I joined <span class="bold">RE/MAX</span> as a <span class="bold">Full Stack Developer</span> where I journeyed into full-time Angular, AWS, and .NET Core development.
+                    I joined <span class="bold">RE/MAX</span> as a <span class="bold">Full Stack Developer</span> where I journeyed into full-time <span class="bold">Angular, AWS, and .NET Core</span> development.
                     With one of the most modular architecture designs I had the pleasure of working with, I was excited to get started solving
-                    any problem I came across. I optimized, fixed, and added new features to remax.ca which helped propel additional
-                    views to the platform. However, due to the COVID-19 pandemic my time was cut short here.
+                    any problem I came across. I <span class="bold">optimized, fixed, and added new features</span> to remax.ca which <span class="bold">propelled additional views</span>
+                    to the platform. However, due to the COVID-19 pandemic my time here was cut short.
                 </p>
             </div>
         </div>
@@ -100,55 +100,5 @@
     </section>*@
 
 @section Scripts {
-    <script>
-        $(function () {
-
-            init();
-
-            function init() {
-                animateNextLine();
-            }
-
-            // Animate lines being typed
-            function animateCmd(content, $element, callback, charPosition = 0, linePosition = 0) {
-                let chopper = [];
-
-                // chop lines
-                chopper = content.split('');
-                setTimeout(() => {
-                    if (charPosition < content.length) {
-                        let tempCmdLine = "";
-                        for (var i = 0; i <= charPosition; i++) {
-                            tempCmdLine = tempCmdLine + chopper[i];
-                        }
-                        $element.text(tempCmdLine);
-                        charPosition++;
-                        animateCmd(content, $element, callback, charPosition, linePosition);
-                        $element.addClass("blink");
-                    } else {
-                        // callback
-                        linePosition++;
-                        $element.removeClass("blink");
-                        callback(linePosition);
-                    }
-                }, 65);
-            }
-
-            // Find's which line to type out next. Callback / init func.
-            function animateNextLine(linePos = 0) {
-                var lines = [
-                    ["> Hello world.", ".cmd-line1"],
-                    ["> I'm Christian Reyes.", ".cmd-line2"],
-                    ["> Full-stack web developer", ".cmd-line3"]
-                ];
-
-                if (linePos < lines.length) {
-                    animateCmd(lines[linePos][0], $(lines[linePos][1]), animateNextLine, 0, linePos);
-                } else {
-                    linePos--;
-                    $(lines[linePos][1]).addClass("blink");
-                }
-            }
-        });
-    </script>
+    <script src="~/js/animation.js"></script>
 }

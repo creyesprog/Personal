@@ -1,0 +1,26 @@
+﻿@import 'variables.scss';
+
+@mixin bar-skill-fill ($width) {
+    width: $width;
+    height: 100%;
+    background-color: #002f85;
+}
+
+@mixin div-bg {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+@mixin exp-logo {
+    border-radius: 50%;
+    width: $exp-logo-height-width;
+    height: $exp-logo-height-width;
+}
+
+
+/*@mixin desktop {
+    @media (max-width: $desktop) {
+        @content;
+    }
+}*/

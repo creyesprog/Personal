@@ -7,42 +7,10 @@
     Widths: 1500+ (SUPER LARGE)
 */
 
-/* Variables */
-$box-shadow: 0 0rem 0.75rem rgba(0, 0, 0, 0.15);
-$color-bar-fill: #000000;
-$disable-grey: #808080;
-$exp-logo-height-width: 7rem;
-$line-color: #dbdbdb;
-$nav-link-padding: 0.2rem;
-$nav-link-transition: 0.4s;
-$nav-width: 50px;
-$section-padding-offset-575: 10px;
-$section-padding-offset-576: 25px;
-$section-padding-offset-993: 100px;
-$section-padding-offset-1100: 150px;
-$section-padding-offset-1500: 250px;
-$section-padding-top-bottom: 30px;
-$skill-bg-grey: #ffffff;
+@import './_variables.scss';
+@import './_mixins.scss';
+@import './_fonts.scss';
 
-/* Mixin */
-
-@mixin bar-skill-fill ($width) {
-    width: $width;
-    height: 100%;
-    background-color: #002f85;
-}
-
-@mixin div-bg {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-@mixin exp-logo {
-    border-radius: 50%;
-    width: $exp-logo-height-width;
-    height: $exp-logo-height-width;
-}
 
 /* Utilities */
 
@@ -282,11 +250,16 @@ a.navbar-brand {
 
 
 body {
+    font-family: "Roboto"!important;
     margin-bottom: 60px;
     background-color: #ffffff;
     color: #616161;
     font-size: 1.1rem;
     font-weight: 300;
+
+    /*@include desktop {
+
+    }*/
 
     @media(max-width: 575px) {
         font-size: 0.99rem;

@@ -1,14 +1,23 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.CodeAnalysis.Options;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using portfolio.Infrastructure.Database;
+using portfolio.Infrastructure.Database.Models;
+using portfolio.Infrastructure.Repositories;
+using portfolio.Infrastructure.Repositories.Interfaces;
+using portfolio.Infrastructure.Services;
+using portfolio.Infrastructure.Services.Interfaces;
 
 namespace portfolio
 {
@@ -26,7 +35,11 @@ namespace portfolio
         {
             services.AddControllersWithViews();
 
-            //services.AddScoped(); Add services here where 
+            services.AddDbContext<PortfolioContext>(options =>
+                options.UseLazyLoadingProxies() // Add that sweeeet lazy loaaading
+                .UseSqlServer(Configuration.GetConnectionString("PortfolioDB")));
+            services.AddScoped<IContactMeRepository, ContactMeRepository>();
+            services.AddScoped<IEmailService, EmailService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
