@@ -1,4 +1,5 @@
-﻿@import 'variables.scss';
+﻿@import './_variables.scss';
+@import './_keyframes.scss';
 
 @mixin bar-skill-fill ($width) {
     width: $width;
@@ -18,9 +19,32 @@
     height: $exp-logo-height-width;
 }
 
-
-/*@mixin desktop {
-    @media (max-width: $desktop) {
+@mixin desktop-l {
+    @media (min-width: $width-desktop-l) {
         @content;
     }
-}*/
+}
+
+@mixin desktop-s {
+    @media (min-width: $width-desktop-s) {
+        @content;
+    }
+}
+
+@mixin tablet-l {
+    @media (min-width: $width-tablet-l) {
+        @content;
+    }
+}
+
+@mixin tablet-s {
+    @media (min-width: $width-tablet-s) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: $width-mobile) {
+        @content;
+    }
+}

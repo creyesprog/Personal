@@ -8,8 +8,8 @@
     </div>
 </section>
 <section id="section-about" class="bg-off-white">
-    <h1>> About me</h1>
-    <p class="section-content">
+    <h1 class="hide" animation="anim-left-right-fade">> About me</h1>
+    <p class="hide section-content" animation="anim-fade-in">
         I'm a <span class="bold">full-stack developer</span> (60% backend / 40% frontend) based in <span class="bold">Brampton, ON.</span><br />
         I have a passion in providing <span class="bold">simple</span> and <span class="bold">efficient</span> solutions for any problem.
     </p>
@@ -18,7 +18,7 @@
             If
             there was any mantra I'd follow it would have to be "efficiency in simplicity".
         </p>*@
-    <div id="div-experience">
+    <div id="div-experience" class="hide" animation="anim-fade-in">
         <div class="exp-row flex-center">
             <div id="kubra-logo" class="exp-logo box-shadow">
                 <a href="https://kubra.com" target="_blank"></a>
@@ -63,6 +63,18 @@
                 </p>
             </div>
         </div>
+        <div class="exp-connector">
+        </div>
+        <div class="exp-row flex-center">
+            <div id="ocas-logo" class="exp-logo box-shadow">
+                <a href="https://www.ocas.ca/" target="_blank"></a>
+            </div>
+            <div class="exp-summary">
+                <p>
+                    I'm now working at <span class="bold">OCAS</span> as a <span class="bold">Full Stack Developer</span>, where I'm trying to make the world a better place!
+                </p>
+            </div>
+        </div>
         @* Below is used for the line animation  *@
         <div class="exp-line-anim">
 
@@ -70,14 +82,12 @@
     </div>
 </section>
 <section id="section-skills">
-    <h1>
-        > Skills
-    </h1>
+    <h1 class="hide" animation="anim-left-right-fade">> Skills</h1>
     @*<p class="section-content">
             I started with heavy backend development, but due to my own passion and curiosity I now develop for both the
             frontend (client side) and backend (server side).
         </p>*@
-    <div class="skill-bars">
+    <div class="skill-bars hide" animation="anim-fade-in">
         @{
             await Html.RenderPartialAsync("_SkillBarPartial", new SkillPartialViewModel("C#", 90));
             await Html.RenderPartialAsync("_SkillBarPartial", new SkillPartialViewModel(".NET/Core", 90));

@@ -1,0 +1,39 @@
+﻿.anim-left-right-fade {
+    animation: left-right-fade 1s ease;
+}
+
+.anim-fade-in {
+    animation: fade-in 1.5s ease;
+}
+
+@-webkit-keyframes cmd-blink {
+    0% {
+        -webkit-opacity: 1;
+    }
+
+    50% {
+        -webkit-opacity: 0;
+    }
+}
+
+@keyframes left-right-fade {
+    0% {
+        transform: translateX(-20%);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
