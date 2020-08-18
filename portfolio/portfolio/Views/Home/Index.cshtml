@@ -11,7 +11,7 @@
     <h1 class="hide" animation="anim-left-right-fade">> About me</h1>
     <p class="hide section-content" animation="anim-fade-in">
         I'm a <span class="bold">full-stack developer</span> (60% backend / 40% frontend) based in <span class="bold">Brampton, ON.</span><br />
-        I have a passion in providing <span class="bold">simple</span> and <span class="bold">efficient</span> solutions for any problem.
+        I have a passion for providing <span class="bold">simple</span> and <span class="bold">efficient</span> solutions for any problem.
     </p>
     @*<p class="text-center">
             Here is a list of work experience I have had so far:
@@ -87,7 +87,7 @@
             I started with heavy backend development, but due to my own passion and curiosity I now develop for both the
             frontend (client side) and backend (server side).
         </p>*@
-    <div class="skill-bars hide" animation="anim-fade-in">
+    <div class="skill-bars hide" animation="anim-fade-in" anim-anchor="anim-widen">
         @{
             await Html.RenderPartialAsync("_SkillBarPartial", new SkillPartialViewModel("C#", 90));
             await Html.RenderPartialAsync("_SkillBarPartial", new SkillPartialViewModel(".NET/Core", 90));

@@ -4,9 +4,8 @@
 
     function init() {
         animateNextLine();
-        animateContactOnView();
         loadAnimations();
-        animateContactOnView();
+        animateOnScrollPos();
     }
 
     // Find's which line to type out next. Callback / init func.
@@ -52,29 +51,56 @@
 
     // When scrolling, determine what animations to trigger
     var $animations;
+    var $animAnchorLink;
 
-    $(window).scroll(animateContactOnView);
+    $(window).scroll(animateOnScrollPos);
 
     function loadAnimations() {
         $animations = [];
+        $animAnchorLink = [];
 
+        // Load normal animations
         $("[animation]").each(function (i, e) {
             $animations.push($(e));
         });
+
+        // Load linked animations anchor/link anims
+        $("[anim-anchor]").each(function (i, e) {
+            var linkArray = [];
+            // Add first element
+            linkArray.push($(e));
+            $("[anim-link=" + $(e).attr('anim-anchor') + "]").each(function (a, o) {
+                linkArray.push($(o));
+            });
+            $animAnchorLink.push(linkArray);
+        });
     }
 
-    function animateContactOnView() {
+    function animateOnScrollPos() {
         // Check if we still have any animations to go through
         if ($animations !== undefined && $animations.length !== 0) {
             // Loop through animations and trigger when at certain point
-            for (var i = 0; i < $animations.length; i++) {
-                if ($animations[i].position().top <= $("html").scrollTop() + 500) {
+            for (var i = $animations.length - 1; i >= 0; i--) {
+                if ($animations[i].offset().top <= $("html").scrollTop() + 600) {
                     $animations[i].removeClass("hide");
                     $animations[i].addClass($animations[i].attr("animation"));
                     $animations.splice(i, 1);
                 }
             }
+        }
 
+        // Check linked animations
+        if ($animAnchorLink !== undefined && $animAnchorLink.length !== 0) {
+            // Loop through animations and trigger when at anchor point
+            for (var i = $animAnchorLink.length - 1; i >= 0; i--) {
+                if ($animAnchorLink[i][0].offset().top <= $("html").scrollTop() + 600) {
+                    for (var a = $animAnchorLink[i].length - 1; a >= 1; a--) {
+                        $animAnchorLink[i][a].removeClass("hide");
+                        $animAnchorLink[i][a].addClass($animAnchorLink[i][0].attr("anim-anchor"));
+                    }
+                    $animAnchorLink.splice(i, 1);
+                }
+            }
         }
     }
 });

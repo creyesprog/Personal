@@ -4,7 +4,11 @@
 @mixin bar-skill-fill ($width) {
     width: $width;
     height: 100%;
-    background-color: #002f85;
+
+    .bar-color {
+        background-color: #002f85;
+        height: 100%;
+    }
 }
 
 @mixin div-bg {

@@ -178,6 +178,10 @@ a.navbar-brand {
         text-align: center;
         height: 100%;
         margin: auto;
+
+        @include mobile {
+            font-size: 0.65rem;
+        }
     }
 
     .skill-bar-fill {
@@ -506,6 +510,7 @@ html {
             }
 
             #section-skills {
+                
             }
 
             #section-contact {

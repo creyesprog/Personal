@@ -100,11 +100,26 @@
 .anim-fade-in {
   animation: fade-in 1.5s ease; }
 
+.anim-widen {
+  animation: widen 3.5s ease; }
+
+@keyframes widen {
+  0% {
+    width: 0%; }
+  100% {
+    width: 100%; } }
+
 @-webkit-keyframes cmd-blink {
   0% {
     -webkit-opacity: 1; }
   50% {
     -webkit-opacity: 0; } }
+
+@keyframes fade-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 
 @keyframes left-right-fade {
   0% {
@@ -113,12 +128,6 @@
   100% {
     opacity: 1;
     transform: translateX(0px); } }
-
-@keyframes fade-in {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
 
 /* Variables */
 .anim-left-right-fade {
@@ -127,11 +136,26 @@
 .anim-fade-in {
   animation: fade-in 1.5s ease; }
 
+.anim-widen {
+  animation: widen 3.5s ease; }
+
+@keyframes widen {
+  0% {
+    width: 0%; }
+  100% {
+    width: 100%; } }
+
 @-webkit-keyframes cmd-blink {
   0% {
     -webkit-opacity: 1; }
   50% {
     -webkit-opacity: 0; } }
+
+@keyframes fade-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 
 @keyframes left-right-fade {
   0% {
@@ -140,12 +164,6 @@
   100% {
     opacity: 1;
     transform: translateX(0px); } }
-
-@keyframes fade-in {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
 
 /* Variables */
 /* ************************** Utilities ************************** */
@@ -271,50 +289,73 @@ a.navbar-brand {
     text-align: center;
     height: 100%;
     margin: auto; }
+    @media (max-width: 575px) {
+      .skill-bar .skill-label {
+        font-size: 0.65rem; } }
   .skill-bar .skill-bar-fill {
     background-color: #ffffff;
     padding: 0px;
     height: 100%; }
     .skill-bar .skill-bar-fill .bar-10 {
       width: 10%;
-      height: 100%;
-      background-color: #002f85; }
+      height: 100%; }
+      .skill-bar .skill-bar-fill .bar-10 .bar-color {
+        background-color: #002f85;
+        height: 100%; }
     .skill-bar .skill-bar-fill .bar-20 {
       width: 20%;
-      height: 100%;
-      background-color: #002f85; }
+      height: 100%; }
+      .skill-bar .skill-bar-fill .bar-20 .bar-color {
+        background-color: #002f85;
+        height: 100%; }
     .skill-bar .skill-bar-fill .bar-30 {
       width: 30%;
-      height: 100%;
-      background-color: #002f85; }
+      height: 100%; }
+      .skill-bar .skill-bar-fill .bar-30 .bar-color {
+        background-color: #002f85;
+        height: 100%; }
     .skill-bar .skill-bar-fill .bar-40 {
       width: 40%;
-      height: 100%;
-      background-color: #002f85; }
+      height: 100%; }
+      .skill-bar .skill-bar-fill .bar-40 .bar-color {
+        background-color: #002f85;
+        height: 100%; }
     .skill-bar .skill-bar-fill .bar-50 {
       width: 50%;
-      height: 100%;
-      background-color: #002f85; }
+      height: 100%; }
+      .skill-bar .skill-bar-fill .bar-50 .bar-color {
+        background-color: #002f85;
+        height: 100%; }
     .skill-bar .skill-bar-fill .bar-60 {
       width: 60%;
-      height: 100%;
-      background-color: #002f85; }
+      height: 100%; }
+      .skill-bar .skill-bar-fill .bar-60 .bar-color {
+        background-color: #002f85;
+        height: 100%; }
     .skill-bar .skill-bar-fill .bar-70 {
       width: 70%;
-      height: 100%;
-      background-color: #002f85; }
+      height: 100%; }
+      .skill-bar .skill-bar-fill .bar-70 .bar-color {
+        background-color: #002f85;
+        height: 100%; }
     .skill-bar .skill-bar-fill .bar-80 {
       width: 80%;
-      height: 100%;
-      background-color: #002f85; }
+      height: 100%; }
+      .skill-bar .skill-bar-fill .bar-80 .bar-color {
+        background-color: #002f85;
+        height: 100%; }
     .skill-bar .skill-bar-fill .bar-90 {
       width: 90%;
-      height: 100%;
-      background-color: #002f85; }
+      height: 100%; }
+      .skill-bar .skill-bar-fill .bar-90 .bar-color {
+        background-color: #002f85;
+        height: 100%; }
     .skill-bar .skill-bar-fill .bar-100 {
       width: 100%;
-      height: 100%;
-      background-color: #002f85; }
+      height: 100%; }
+      .skill-bar .skill-bar-fill .bar-100 .bar-color {
+        background-color: #002f85;
+        height: 100%; }
     .skill-bar .skill-bar-fill .skill-percent {
       display: flex;
       margin-left: auto;
